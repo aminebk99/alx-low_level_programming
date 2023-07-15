@@ -3,6 +3,10 @@
 /* more headers goes there */
 
 /* betty style doc for function main goes there */
+/**
+ * this program determines if a is positive or negative or,zero
+ * Return: 0
+ */
 int main(void)
 {
 int n;
