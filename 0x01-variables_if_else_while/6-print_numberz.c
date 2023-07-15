@@ -1,15 +1,14 @@
 #include <stdio.h>
-/**
-* main - Entry point
-* Return: Always 0 (Success)
+/** 
+* main - number*
+* Return: 0
 */
 int main(void)
 {
-char AY;
-for (AY = 'a'; AY <= 'z'; AY++)
+int i;
+for (i = 48; i <= 57; i++)
 {
-if (AY != 'e' && AY != 'q')
-putchar(AY);
+putchar(i);
 }
 putchar('\n');
 return (0);
