@@ -1,8 +1,12 @@
 #include <stdlib.h>
 #include <time.h>
-/* more headers goes there */
-/* betty style doc for function main goes there */
-/*this program for testing value of variable n and return O*/
+#include <stdlib.h>
+/**
+* more headers goes there
+* betty style doc for function main goes there
+* this program for testing value of variable n
+* Return:Always 0 (Success)
+*/
 int main(void)
 {
 int n;
