@@ -1,7 +1,8 @@
 #include "lists.h"
 
 /**
- * insert_dnodeint_at_index - Inserts a new node at a given position in a doubly linked list.
+ * insert_dnodeint_at_index - Inserts a new node
+ *                                      at a given position in a doubly linked list.
  * @h: Double pointer to the head of the list.
  * @idx: Index where the new node should be added (starting from 0).
  * @n: Value to be assigned to the new node.
@@ -9,35 +10,30 @@
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-    if (h == NULL)
-        return (NULL);
+        dlistint_t *tmp = *h, *new;
 
-    dlistint_t *current = *h, *new;
+        if (idx == 0)
+                return (add_dnodeint(h, n));
 
-    if (idx == 0)
-        return (add_dnodeint(h, n));
+        for (; idx != 1; idx--)
+        {
+                tmp = tmp->next;
+                if (tmp == NULL)
+                        return (NULL);
+        }
 
-    while (idx != 1)
-    {
-        if (current == NULL)
-            return (NULL);
-        current = current->next;
-        idx--;
-    }
+        if (tmp->next == NULL)
+                return (add_dnodeint_end(h, n));
 
-    if (current == NULL || current->next == NULL)
-        return (add_dnodeint_end(h, n));
+        new = malloc(sizeof(dlistint_t));
+        if (new == NULL)
+                return (NULL);
 
-    new = malloc(sizeof(dlistint_t));
-    if (new == NULL)
-        return (NULL);
+        new->n = n;
+        new->prev = tmp;
+        new->next = tmp->next;
+        tmp->next->prev = new;
+        tmp->next = new;
 
-    new->n = n;
-    new->prev = current;
-    new->next = current->next;
-    current->next->prev = new;
-    current->next = new;
-
-    return (new);
+        return (new);
 }
-
